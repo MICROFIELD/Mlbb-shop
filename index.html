@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLBB Weekly Pass Shop</title>
+    <style>
+        body { font-family: sans-serif; background-color: #0f172a; color: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .shop-card { background: #1e293b; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); width: 320px; text-align: center; border: 1px solid #334155; }
+        h2 { color: #38bdf8; margin-bottom: 5px; }
+        .price { font-size: 22px; color: #fbbf24; font-weight: bold; margin-bottom: 20px; }
+        input { width: 100%; padding: 12px; margin: 8px 0; border-radius: 8px; border: 1px solid #475569; background: #0f172a; color: white; box-sizing: border-box; outline: none; }
+        input:focus { border-color: #38bdf8; }
+        .buy-btn { width: 100%; padding: 15px; border: none; border-radius: 8px; background: #0088cc; color: white; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 15px; }
+        .buy-btn:hover { background: #0077b5; }
+    </style>
+</head>
+<body>
+
+<div class="shop-card">
+    <img src="https://img.yt/wp-content/uploads/2023/03/MLBB-Weekly-Diamond-Pass.jpg" style="width:100%; border-radius:10px; margin-bottom:15px;">
+    <h2>Weekly Pass</h2>
+    <div class="price">1week - 6,500 Ks</div>
+
+    <input type="number" id="userid" placeholder="User ID (ဥပမာ - 12345678)">
+    <input type="number" id="zoneid" placeholder="Zone ID (ဥပမာ - 1234)">
+
+    <button onclick="sendToTelegram()" class="buy-btn">Telegram ကနေ ဝယ်ယူမည်</button>
+</div>
+
+<script>
+    function sendToTelegram() {
+        const userId = document.getElementById('userid').value;
+        const zoneId = document.getElementById('zoneid').value;
+        
+        // အချက်အလက် မပြည့်စုံရင် Alert ပေးမယ်
+        if (!userId || !zoneId) {
+            alert("ID များကို ပြည့်စုံစွာ ဖြည့်ပေးပါ ခင်ဗျာ");
+            return;
+        }
+
+        // Telegram Username @Srflip55 ကို ပို့မယ့် Message
+        const username = "Srflip55"; 
+        const text = `MLBB Weekly Pass ဝယ်ယူလိုပါသည်%0A----------------------%0AUser ID: ${userId}%0AZone ID: ${zoneId}%0Aဈေးနှုန်း: 1week - 6,500 Ks`;
+        
+        // Link အမှန်: https://t.me/username?text=message
+        const telegramUrl = `https://t.me/${username}?text=${text}`;
+        
+        // Telegram သို့ ပို့ဆောင်ပေးခြင်း
+        window.open(telegramUrl, '_blank');
+    }
+</script>
+
+</body>
+</html>
