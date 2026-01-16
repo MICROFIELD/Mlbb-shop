@@ -23,7 +23,6 @@
             min-height: 100vh;
         }
 
-        /* Header Customization */
         .header {
             padding: 20px;
             text-align: center;
@@ -32,13 +31,9 @@
             background: rgba(2, 6, 23, 0.8);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(56, 189, 248, 0.2);
-            letter-spacing: 1px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            position: sticky; top: 0; z-index: 100;
         }
 
-        /* Payment Box */
         .kpay-box {
             margin: 20px 15px;
             padding: 15px;
@@ -48,167 +43,78 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
 
-        .kpay-name { 
-            color: var(--primary); 
-            font-weight: bold; 
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-
-        .kpay-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
+        .kpay-name { color: var(--primary); font-weight: bold; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 5px; }
+        .kpay-row { display: flex; justify-content: space-between; align-items: center; }
         .phone-num { font-size: 1.2rem; font-weight: 700; letter-spacing: 1px; }
 
         .copy-btn {
-            background: var(--primary);
-            color: #000;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
+            background: var(--primary); color: #000; border: none; padding: 8px 16px;
+            border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s;
         }
 
-        .copy-btn:active { transform: scale(0.9); }
+        .category { padding: 15px 20px 5px; font-weight: bold; color: var(--primary); font-size: 1.1rem; }
 
-        /* Diamond Grid */
-        .category {
-            padding: 15px 20px 5px;
-            font-weight: bold;
-            color: var(--primary);
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            padding: 15px;
-        }
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 15px; }
 
         .card {
-            background: var(--card-bg);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 20px;
-            padding: 20px 15px;
-            text-align: center;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
+            background: var(--card-bg); backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 20px; padding: 20px 15px; text-align: center; transition: all 0.3s ease;
         }
+        .card:hover { transform: translateY(-5px); border-color: var(--primary); background: rgba(30, 41, 59, 0.9); }
 
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            background: rgba(30, 41, 59, 0.9);
-        }
-
-        .card img {
-            width: 50px;
-            margin-bottom: 10px;
-            filter: drop-shadow(0 0 8px var(--primary));
-        }
-
+        .card img { width: 50px; margin-bottom: 10px; filter: drop-shadow(0 0 8px var(--primary)); }
         .item-name { font-size: 0.95rem; margin-bottom: 5px; opacity: 0.9; }
         .price { color: var(--accent); font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; }
 
         .buy-btn {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 12px;
+            width: 100%; padding: 10px; border: none; border-radius: 12px;
             background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: #000;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2);
+            color: #000; font-weight: bold; cursor: pointer;
         }
 
         /* Modal / Form */
         .modal {
-            position: fixed;
-            inset: 0;
-            background: rgba(2, 6, 23, 0.85);
-            backdrop-filter: blur(8px);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            padding: 20px;
+            position: fixed; inset: 0; background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(8px); display: none; justify-content: center; align-items: center;
+            z-index: 1000; padding: 20px;
         }
 
         .modal-box {
-            background: #1e293b;
-            width: 100%;
-            max-width: 400px;
-            padding: 25px;
-            border-radius: 24px;
-            border: 1px solid rgba(56, 189, 248, 0.3);
+            background: #1e293b; width: 100%; max-width: 400px; padding: 25px;
+            border-radius: 24px; border: 1px solid rgba(56, 189, 248, 0.3);
             animation: slideUp 0.3s ease-out;
         }
 
-        @keyframes slideUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+        .modal-box input, .modal-box select {
+            width: 100%; padding: 12px; margin: 8px 0; border-radius: 10px;
+            border: 1px solid #334155; background: #0f172a; color: #fff; box-sizing: border-box; outline: none;
         }
 
-        .modal-box h3 { margin: 0 0 20px; color: var(--primary); text-align: center; }
-
-        .modal-box input {
-            width: 100%;
-            padding: 12px;
-            margin: 8px 0;
-            border-radius: 10px;
-            border: 1px solid #334155;
-            background: #0f172a;
-            color: #fff;
-            box-sizing: border-box;
-            outline: none;
-            transition: 0.3s;
+        .weekly-qty-container {
+            background: rgba(56, 189, 248, 0.1); padding: 10px; border-radius: 12px;
+            margin: 10px 0; display: none; /* Only shows for weekly pass */
         }
 
-        .modal-box input:focus { border-color: var(--primary); box-shadow: 0 0 10px rgba(56, 189, 248, 0.1); }
+        .total-display {
+            text-align: center; color: var(--accent); font-weight: 800; font-size: 1.2rem; margin: 10px 0;
+        }
 
         .server-badge {
-            display: inline-block;
-            padding: 4px 12px;
-            background: rgba(34, 197, 94, 0.1);
-            color: var(--accent);
-            border-radius: 20px;
-            font-size: 12px;
-            margin-bottom: 15px;
-            border: 1px solid rgba(34, 197, 94, 0.3);
+            display: inline-block; padding: 4px 12px; background: rgba(34, 197, 94, 0.1);
+            color: var(--accent); border-radius: 20px; font-size: 12px; margin-bottom: 10px;
         }
 
         .order-btn {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 12px;
-            margin-top: 10px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            cursor: pointer;
+            width: 100%; padding: 12px; border: none; border-radius: 12px;
+            margin-top: 10px; font-weight: bold; display: flex; align-items: center;
+            justify-content: center; gap: 10px; cursor: pointer;
         }
 
         .tg { background: #0088cc; color: white; }
         .fb { background: #1877f2; color: white; }
-        .close-btn { background: transparent; color: #94a3b8; margin-top: 5px; text-decoration: underline; font-size: 0.9rem; }
-
-        #temp { position: absolute; left: -9999px; }
+        .close-btn { background: transparent; color: #94a3b8; margin-top: 5px; cursor: pointer; border: none; width: 100%; }
     </style>
 </head>
 
@@ -219,13 +125,13 @@
 <div class="kpay-box">
     <div class="kpay-name"><i class="fa-solid fa-wallet"></i> KPay Account</div>
     <div class="kpay-row">
-        <span class="phone-num" id="kpayAcc">09977123184</span>
+        <span class="phone-num">09977123184</span>
         <button class="copy-btn" onclick="copyKpay()">Copy</button>
     </div>
     <div style="font-size: 12px; margin-top: 8px; opacity: 0.7;">Name: Han Min Htet</div>
 </div>
 
-<input id="temp" value="09977123184">
+<input id="temp" value="09977123184" style="position: absolute; left: -9999px;">
 
 <div class="category"><i class="fa-solid fa-gem"></i> Diamonds & Weekly Pass</div>
 <div class="grid">
@@ -233,41 +139,58 @@
         <img src="https://i.pinimg.com/736x/ec/9d/d3/ec9dd32c001ab51f4637a6d56b0e22e1.jpg">
         <div class="item-name">Weekly Pass</div>
         <div class="price">6,500 Ks</div>
-        <button class="buy-btn" onclick="buy('Weekly Pass - 6,500 Ks')">ဝယ်ယူမယ်</button>
+        <button class="buy-btn" onclick="buy('Weekly Pass', 6500, true)">ဝယ်ယူမယ်</button>
     </div>
+
     <div class="card">
         <img src="https://play-lh.googleusercontent.com/z7J5bwi_xO2xKCvop9gDSrZIySKBXVKT4IAnaDBhGRiJybOTFyNirQTXwYiv8lODtbeU">
         <div class="item-name">11 Diamonds</div>
         <div class="price">1,000 Ks</div>
-        <button class="buy-btn" onclick="buy('11 Diamonds - 1,000 Ks')">ဝယ်ယူမယ်</button>
+        <button class="buy-btn" onclick="buy('11 Diamonds', 1000, false)">ဝယ်ယူမယ်</button>
     </div>
+
     <div class="card">
         <img src="https://play-lh.googleusercontent.com/z7J5bwi_xO2xKCvop9gDSrZIySKBXVKT4IAnaDBhGRiJybOTFyNirQTXwYiv8lODtbeU">
         <div class="item-name">22 Diamonds</div>
         <div class="price">2,000 Ks</div>
-        <button class="buy-btn" onclick="buy('11 Diamonds - 2,000 Ks')">ဝယ်ယူမယ်</button>
+        <button class="buy-btn" onclick="buy('22 Diamonds', 2000, false)">ဝယ်ယူမယ်</button>
     </div>
 
     <div class="card">
         <img src="https://play-lh.googleusercontent.com/z7J5bwi_xO2xKCvop9gDSrZIySKBXVKT4IAnaDBhGRiJybOTFyNirQTXwYiv8lODtbeU">
         <div class="item-name">86 Diamonds</div>
         <div class="price">5,300 Ks</div>
-        <button class="buy-btn" onclick="buy('86 Diamonds - 5,300 Ks')">ဝယ်ယူမယ်</button>
+        <button class="buy-btn" onclick="buy('86 Diamonds', 5300, false)">ဝယ်ယူမယ်</button>
     </div>
-
-    
 </div>
 
 <div class="modal" id="modal">
     <div class="modal-box">
-        <h3 id="orderItem">Item Name</h3>
+        <h3 id="orderItem" style="text-align: center; color: var(--primary);">Item Name</h3>
         
+        <div id="weeklyQtyBox" class="weekly-qty-container">
+            <label style="font-size: 12px; color: var(--primary); display: block; margin-bottom: 5px;">အကြိမ်ရေရွေးပါ (Max 10)</label>
+            <select id="weeklyQty" onchange="calculateTotal()">
+                <option value="1">1 Week</option>
+                <option value="2">2 Weeks</option>
+                <option value="3">3 Weeks</option>
+                <option value="4">4 Weeks</option>
+                <option value="5">5 Weeks</option>
+                <option value="6">6 Weeks</option>
+                <option value="7">7 Weeks</option>
+                <option value="8">8 Weeks</option>
+                <option value="9">9 Weeks</option>
+                <option value="10">10 Weeks</option>
+            </select>
+        </div>
+
         <input id="uid" type="number" placeholder="User ID (ဥပမာ - 12345678)">
         <input id="zone" type="number" placeholder="Zone ID (ဥပမာ - 1234)">
         <input id="gname" type="text" placeholder="Game Name">
         
         <div style="text-align: center;">
             <span class="server-badge" id="serverText">Server: -</span>
+            <div class="total-display" id="totalPrice">Total: 0 Ks</div>
         </div>
 
         <button class="order-btn tg" onclick="sendOrder('tg')">
@@ -276,28 +199,24 @@
         <button class="order-btn fb" onclick="sendOrder('fb')">
             <i class="fa-brands fa-facebook-messenger"></i> Messenger မှာ ဝယ်မယ်
         </button>
-        <button class="order-btn close-btn" onclick="closeModal()">ပြန်ထွက်မယ်</button>
+        <button class="close-btn" onclick="closeModal()">ပြန်ထွက်မယ်</button>
     </div>
 </div>
 
 <script>
-let selectedItem = "";
+let selectedItemName = "";
+let basePrice = 0;
+let isWeeklyPass = false;
 
 function copyKpay() {
     const tempInput = document.getElementById('temp');
     tempInput.select();
     document.execCommand("copy");
     
-    // ခလုတ်စာသားကို ခဏပြောင်းပေးမယ်
     const btn = document.querySelector('.copy-btn');
-    const originalText = btn.innerText;
     btn.innerText = "Copied!";
     btn.style.background = "#22c55e";
-    
-    setTimeout(() => {
-        btn.innerText = originalText;
-        btn.style.background = "#38bdf8";
-    }, 2000);
+    setTimeout(() => { btn.innerText = "Copy"; btn.style.background = "#38bdf8"; }, 2000);
 }
 
 function detectServer(z) {
@@ -310,55 +229,68 @@ function detectServer(z) {
     return "Global/Other";
 }
 
-function buy(item) {
-    selectedItem = item;
-    document.getElementById('orderItem').innerText = item;
+function buy(name, price, weekly) {
+    selectedItemName = name;
+    basePrice = price;
+    isWeeklyPass = weekly;
+
+    document.getElementById('orderItem').innerText = name;
+    document.getElementById('weeklyQtyBox').style.display = weekly ? "block" : "none";
+    
+    if(weekly) document.getElementById('weeklyQty').value = "1";
+    
+    calculateTotal();
     document.getElementById('modal').style.display = "flex";
+}
+
+function calculateTotal() {
+    let qty = isWeeklyPass ? parseInt(document.getElementById('weeklyQty').value) : 1;
+    let total = basePrice * qty;
+    document.getElementById('totalPrice').innerText = "Total: " + total.toLocaleString() + " Ks";
 }
 
 document.getElementById('zone').oninput = function() {
     document.getElementById('serverText').innerText = "Server: " + detectServer(this.value);
 };
 
-function closeModal() {
-    document.getElementById('modal').style.display = "none";
-}
+function closeModal() { document.getElementById('modal').style.display = "none"; }
 
 function sendOrder(platform) {
     const uid = document.getElementById('uid').value;
     const zone = document.getElementById('zone').value;
     const gname = document.getElementById('gname').value;
+    const qty = isWeeklyPass ? document.getElementById('weeklyQty').value : 1;
+    const total = (basePrice * qty).toLocaleString();
 
     if(!uid || !zone || !gname) {
         alert("အချက်အလက် အပြည့်အစုံဖြည့်ပေးပါဦး");
         return;
     }
 
-    const msg = `*NEW MLBB ORDER*\n\n` +
-                `Item: ${selectedItem}\n` +
-                `ID: ${uid} (${zone})\n` +
-                `Name: ${gname}\n` +
-                `Server: ${detectServer(zone)}\n\n` +
-                `Payment: KPay (Done)`;
+    let itemInfo = isWeeklyPass ? `${selectedItemName} (${qty} Weeks)` : selectedItemName;
+
+    const msg = ` *NEW MLBB ORDER* \n\n` +
+                ` Item: ${itemInfo}\n` +
+                ` Total: ${total} Ks\n` +
+                ` ID: ${uid} (${zone})\n` +
+                ` Name: ${gname}\n` +
+                ` Server: ${detectServer(zone)}\n\n` +
+                ` `;
 
     const encodedMsg = encodeURIComponent(msg);
 
     if(platform === "tg") {
         window.open(`https://t.me/Srflip55?text=${encodedMsg}`);
     } else {
-        // Messenger အတွက် Link (User ID သို့မဟုတ် Page Link သုံးနိုင်သည်)
         window.open(`https://m.me/han.min.htet.55`);
     }
 }
 
-// Modal အပြင်ဘက်ကိုနှိပ်ရင် ပိတ်ပေးဖို့
 window.onclick = function(event) {
-    const modal = document.getElementById('modal');
-    if (event.target == modal) {
-        closeModal();
-    }
+    if (event.target == document.getElementById('modal')) closeModal();
 }
 </script>
 
 </body>
 </html>
+
