@@ -5,51 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MLBB Dia Shop - Han Min Htet</title>
     <style>
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #0f172a; color: white; display: flex; justify-content: center; padding: 20px; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #0f172a; color: white; display: flex; justify-content: center; padding: 20px; }
         .shop-card { background: #1e293b; padding: 25px; border-radius: 24px; width: 380px; text-align: center; border: 1px solid #334155; box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
-        .item-img { width: 25%; border-radius: 15px; margin-bottom: 15px; border: 2px solid #38bdf8; }
         
-        .welcome-msg { font-size: 15px; color: #e2e8f0; line-height: 1.6; margin-bottom: 20px; padding: 15px; background: rgba(56, 189, 248, 0.1); border-radius: 12px; border-left: 4px solid #38bdf8; text-align: left; }
+        /* Logo ကို အလျားရှည်အောင် ညှိထားတဲ့နေရာ */
+        .item-img { 
+            width: 220px; /* အလျားကို ဒီမှာ တိုးထားပါတယ် */
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .welcome-msg { font-size: 14px; color: #e2e8f0; line-height: 1.6; margin-bottom: 20px; padding: 15px; background: rgba(56, 189, 248, 0.1); border-radius: 12px; border-left: 4px solid #38bdf8; text-align: left; }
         
         .payment-box { background: #0f172a; padding: 15px; border-radius: 12px; margin-bottom: 20px; border: 1px dashed #475569; text-align: left; }
-        .payment-title { font-size: 13px; color: #94a3b8; margin-bottom: 5px; display: block; }
         .kpay-name { font-weight: bold; color: #38bdf8; font-size: 16px; }
         .kpay-row { display: flex; justify-content: space-between; align-items: center; margin-top: 5px; }
-        .copy-btn { background: #38bdf8; color: #0f172a; border: none; padding: 5px 10px; border-radius: 6px; font-size: 12px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        .copy-btn:active { transform: scale(0.9); }
-
+        
+        .copy-btn { background: #38bdf8; color: #0f172a; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; cursor: pointer; }
+        
         input, select { width: 100%; padding: 14px; margin: 8px 0; border-radius: 10px; border: 1px solid #475569; background: #1e293b; color: white; box-sizing: border-box; font-size: 15px; }
-        input:focus { border-color: #38bdf8; outline: none; box-shadow: 0 0 10px rgba(56, 189, 248, 0.2); }
+        input:focus { border-color: #38bdf8; outline: none; }
         
         .btn-group { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
-        .tg-btn { background: #0088cc; color: white; padding: 14px; border-radius: 10px; text-decoration: none; font-weight: bold; }
-        .fb-btn { background: #1877f2; color: white; padding: 14px; border-radius: 10px; text-decoration: none; font-weight: bold; }
-        .phone-btn { background: #22c55e; color: white; padding: 14px; border-radius: 10px; text-decoration: none; font-weight: bold; }
+        .btn { padding: 14px; border-radius: 10px; text-decoration: none; font-weight: bold; cursor: pointer; border: none; font-size: 16px; display: block; }
         
+        .fb-btn { background: #1877f2; color: white; }
+        .tg-btn { background: #0088cc; color: white; }
+        .phone-btn { background: #22c55e; color: white; }
+
         .footer { font-size: 12px; color: #64748b; margin-top: 20px; }
     </style>
 </head>
 <body>
 
 <div class="shop-card">
-    <img src="https://images.seeklogo.com/logo-png/59/1/mobile-legends-new-logo-png_seeklogo-599669.png" class="item-img" alt="MLBB Logo">
+    <img src="https://gamelogo.b-cdn.net/wp-content/uploads/2021/11/Mobile-Legends-Logo-PNG-Transparent.png" class="item-img" alt="MLBB Logo">
     
     <div class="welcome-msg">
-        👋 <b>မင်္ဂလာပါဗျာ...</b><br>
-        Mobile Legends Dia များကို ကျွန်တော့်ဆီမှာ ယုံကြည်စိတ်ချစွာ ဝယ်ယူနိုင်ပါတယ်။ Game ID နဲ့ Zone ID ကို မှန်ကန်စွာ ဖြည့်သွင်းပေးပါဗျ။
+        Mobile legends Dia များကိုကျနော်ဆီမာဝယ်ယူလို့ရပါတယ်<br>
+        Game ID နဲ့ Zone id လေးဖြည့်ပြီး အောက်ကပို့ချင်တာနဲ့နှိပ်ပီးပို့လိုက်ရင်ရပါတယ်ဗျ
     </div>
 
     <div class="payment-box">
-        <span class="payment-title">Kpay ဖြင့် ငွေလွှဲရန်</span>
+        <span style="font-size: 12px; color: #94a3b8;">Kpay လွှဲရန်</span>
         <div class="kpay-name">Name: Han Min Htet</div>
         <div class="kpay-row">
-            <span id="kpay-num" style="font-weight: bold; letter-spacing: 1px;">09977123184</span>
+            <span style="font-weight: bold; font-size: 18px;">09977123184</span>
             <button class="copy-btn" onclick="copyNumber()">Copy</button>
         </div>
     </div>
 
-    <input type="number" id="userid" placeholder="Enter User ID (12345678)">
-    <input type="number" id="zoneid" placeholder="Enter Zone ID (1234)">
+    <input type="number" id="userid" placeholder="User ID">
+    <input type="number" id="zoneid" placeholder="Zone ID">
 
     <select id="item">
         <option value="Weekly Diamond Pass - 6,500 Ks">Weekly Diamond Pass - 6,500 Ks</option>
@@ -57,45 +64,40 @@
     </select>
 
     <div class="btn-group">
-        <a href="javascript:void(0)" onclick="sendTo('fb')" class="fb-btn">Messenger ကနေ ဝယ်ယူမယ်</a>
-        <a href="javascript:void(0)" onclick="sendTo('tg')" class="tg-btn">Telegram ကနေ ဝယ်ယူမယ်</a>
-        <a href="tel:09977123184" class="phone-btn">📞 ဖုန်းဆက်သွယ်ဝယ်ယူရန်</a>
+        <button onclick="sendTo('fb')" class="btn fb-btn">Messenger ကနေ ဝယ်ယူမယ်</button>
+        <button onclick="sendTo('tg')" class="btn tg-btn">Telegram ကနေ ဝယ်ယူမယ်</button>
+        <a href="tel:09977123184" class="btn phone-btn">📞 ဖုန်းဆက်သွယ်ဝယ်ယူရန်</a>
     </div>
 
     <div class="footer">
-        ငွေလွှဲပြီးပါက Screenshot ပြပေးပါရန် မေတ္တာရပ်ခံအပ်ပါသည်
+        ငွေလွှဲပြီးပါက Screenshot ပြပေးပါရန်
     </div>
 </div>
 
 <script>
     function copyNumber() {
-        const num = "09977123184";
-        navigator.clipboard.writeText(num);
-        const btn = document.querySelector('.copy-btn');
-        btn.innerText = "Copied!";
-        btn.style.background = "#22c55e";
-        setTimeout(() => {
-            btn.innerText = "Copy";
-            btn.style.background = "#38bdf8";
-        }, 2000);
+        navigator.clipboard.writeText("09977123184");
+        alert("Kpay ဖုန်းနံပါတ်ကို Copy ကူးလိုက်ပါပြီဗျာ");
     }
 
-    function sendTo(platform) {
+function sendTo(platform) {
         const userId = document.getElementById('userid').value;
         const zoneId = document.getElementById('zoneid').value;
         const item = document.getElementById('item').value;
 
         if (!userId || !zoneId) {
-            alert("ကျေးဇူးပြု၍ ID ဖြည့်ပေးပါဦး ခင်ဗျာ");
+            alert("ကျေးဇူးပြု၍ ID ဖြည့်ပေးပါဦး");
             return;
         }
 
         const message = MLBB ဝယ်ယူလိုပါသည်%0AItem: ${item}%0AUser ID: ${userId}%0AZone ID: ${zoneId};
 
         if (platform === 'tg') {
-            window.open(https://t.me/Srflip55?text=${message}, '_blank');
+            // Telegram app သို့ တိုက်ရိုက် redirect လုပ်ခြင်း
+            window.location.href = https://t.me/Srflip55?text=${message};
         } else if (platform === 'fb') {
-            window.open(https://m.me/han.min.htet.55?text=${message}, '_blank');
+            // Messenger app သို့ တိုက်ရိုက် redirect လုပ်ခြင်း
+            window.location.href = https://m.me/han.min.htet.55?text=${message};
         }
     }
 </script>
