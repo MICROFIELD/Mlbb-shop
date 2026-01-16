@@ -3,95 +3,361 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MLBB Dia Shop - Han Min Htet</title>
+    <title>MLBB Diamond Shop - Premium</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background-color: #0f172a; color: white; display: flex; justify-content: center; padding: 20px; }
-        .shop-card { background: #1e293b; padding: 25px; border-radius: 24px; width: 100%; max-width: 380px; text-align: center; border: 1px solid #334155; box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
-        .item-img { width: 50px; height: auto; margin-bottom: 15px; }
-        .welcome-msg { font-size: 14px; color: #e2e8f0; line-height: 1.6; margin-bottom: 20px; padding: 15px; background: rgba(56, 189, 248, 0.1); border-radius: 12px; border-left: 4px solid #38bdf8; text-align: left; }
-        .payment-box { background: #0f172a; padding: 15px; border-radius: 12px; margin-bottom: 20px; border: 1px dashed #475569; text-align: left; }
-        .kpay-name { font-weight: bold; color: #38bdf8; font-size: 16px; }
-        .kpay-row { display: flex; justify-content: space-between; align-items: center; margin-top: 5px; }
-        .copy-btn { background: #38bdf8; color: #0f172a; border: none; padding: 8px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; cursor: pointer; }
-        input, select { width: 100%; padding: 14px; margin: 8px 0; border-radius: 10px; border: 1px solid #475569; background: #1e293b; color: white; box-sizing: border-box; font-size: 15px; -webkit-appearance: none; }
-        .btn-group { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
-        .btn { padding: 14px; border-radius: 10px; color: white; text-decoration: none; font-weight: bold; font-size: 16px; display: block; border: none; cursor: pointer; text-align: center; }
-        .fb-btn { background: #1877f2; }
-        .tg-btn { background: #0088cc; }
-        .phone-btn { background: #22c55e; }
-        
-        /* Copy အလုပ်လုပ်ဖို့ ဖုန်းနံပါတ်ကို ခဏဖျောက်ထားမဲ့ input */
-        #temp-input { position: absolute; left: -9999px; }
+        :root {
+            --primary: #38bdf8;
+            --secondary: #818cf8;
+            --bg: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --accent: #22c55e;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background: radial-gradient(circle at top right, #1e293b, #0f172a);
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        /* Header Customization */
+        .header {
+            padding: 20px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 800;
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+            letter-spacing: 1px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        /* Payment Box */
+        .kpay-box {
+            margin: 20px 15px;
+            padding: 15px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(129, 140, 248, 0.1));
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .kpay-name { 
+            color: var(--primary); 
+            font-weight: bold; 
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .kpay-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .phone-num { font-size: 1.2rem; font-weight: 700; letter-spacing: 1px; }
+
+        .copy-btn {
+            background: var(--primary);
+            color: #000;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .copy-btn:active { transform: scale(0.9); }
+
+        /* Diamond Grid */
+        .category {
+            padding: 15px 20px 5px;
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 15px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 20px 15px;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            background: rgba(30, 41, 59, 0.9);
+        }
+
+        .card img {
+            width: 50px;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 8px var(--primary));
+        }
+
+        .item-name { font-size: 0.95rem; margin-bottom: 5px; opacity: 0.9; }
+        .price { color: var(--accent); font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; }
+
+        .buy-btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2);
+        }
+
+        /* Modal / Form */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(8px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .modal-box {
+            background: #1e293b;
+            width: 100%;
+            max-width: 400px;
+            padding: 25px;
+            border-radius: 24px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-box h3 { margin: 0 0 20px; color: var(--primary); text-align: center; }
+
+        .modal-box input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 10px;
+            border: 1px solid #334155;
+            background: #0f172a;
+            color: #fff;
+            box-sizing: border-box;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .modal-box input:focus { border-color: var(--primary); box-shadow: 0 0 10px rgba(56, 189, 248, 0.1); }
+
+        .server-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(34, 197, 94, 0.1);
+            color: var(--accent);
+            border-radius: 20px;
+            font-size: 12px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .order-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 12px;
+            margin-top: 10px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .tg { background: #0088cc; color: white; }
+        .fb { background: #1877f2; color: white; }
+        .close-btn { background: transparent; color: #94a3b8; margin-top: 5px; text-decoration: underline; font-size: 0.9rem; }
+
+        #temp { position: absolute; left: -9999px; }
     </style>
 </head>
+
 <body>
 
-<div class="shop-card">
-    <img src="https://images.seeklogo.com/logo-png/59/1/mobile-legends-new-logo-png_seeklogo-599669.png" class="item-img" alt="MLBB Logo">
+<div class="header">💎 MLBB DIAMOND STORE</div>
+
+<div class="kpay-box">
+    <div class="kpay-name"><i class="fa-solid fa-wallet"></i> KPay Account</div>
+    <div class="kpay-row">
+        <span class="phone-num" id="kpayAcc">09977123184</span>
+        <button class="copy-btn" onclick="copyKpay()">Copy</button>
+    </div>
+    <div style="font-size: 12px; margin-top: 8px; opacity: 0.7;">Name: Han Min Htet</div>
+</div>
+
+<input id="temp" value="09977123184">
+
+<div class="category"><i class="fa-solid fa-gem"></i> Diamonds & Weekly Pass</div>
+<div class="grid">
+    <div class="card">
+        <img src="https://i.pinimg.com/736x/ec/9d/d3/ec9dd32c001ab51f4637a6d56b0e22e1.jpg">
+        <div class="item-name">Weekly Pass</div>
+        <div class="price">6,500 Ks</div>
+        <button class="buy-btn" onclick="buy('Weekly Pass - 6,500 Ks')">ဝယ်ယူမယ်</button>
+    </div>
+    <div class="card">
+        <img src="https://play-lh.googleusercontent.com/z7J5bwi_xO2xKCvop9gDSrZIySKBXVKT4IAnaDBhGRiJybOTFyNirQTXwYiv8lODtbeU">
+        <div class="item-name">11 Diamonds</div>
+        <div class="price">1,000 Ks</div>
+        <button class="buy-btn" onclick="buy('11 Diamonds - 1,000 Ks')">ဝယ်ယူမယ်</button>
+    </div>
+    <div class="card">
+        <img src="https://play-lh.googleusercontent.com/z7J5bwi_xO2xKCvop9gDSrZIySKBXVKT4IAnaDBhGRiJybOTFyNirQTXwYiv8lODtbeU">
+        <div class="item-name">22 Diamonds</div>
+        <div class="price">2,000 Ks</div>
+        <button class="buy-btn" onclick="buy('11 Diamonds - 2,000 Ks')">ဝယ်ယူမယ်</button>
+    </div>
+
+    <div class="card">
+        <img src="https://play-lh.googleusercontent.com/z7J5bwi_xO2xKCvop9gDSrZIySKBXVKT4IAnaDBhGRiJybOTFyNirQTXwYiv8lODtbeU">
+        <div class="item-name">86 Diamonds</div>
+        <div class="price">5,300 Ks</div>
+        <button class="buy-btn" onclick="buy('86 Diamonds - 5,300 Ks')">ဝယ်ယူမယ်</button>
+    </div>
+
     
-    <div class="welcome-msg">
-        Mobile legends Dia များကိုကျနော်ဆီမာဝယ်ယူလို့ရပါတယ်<br>
-        Game ID နဲ့ Zone id လေးဖြည့်ပြီး အောက်ကပို့ချင်တာနဲ့နှိပ်ပီးပို့လိုက်ရင်ရပါတယ်ဗျ
-    </div>
+</div>
 
-    <div class="payment-box">
-        <span style="font-size: 12px; color: #94a3b8;">Kpay လွှဲရန်</span>
-        <div class="kpay-name">Name: Han Min Htet</div>
-        <div class="kpay-row">
-            <span style="font-weight: bold; font-size: 18px;">09977123184</span>
-            <button class="copy-btn" onclick="copyNumber()">Copy</button>
+<div class="modal" id="modal">
+    <div class="modal-box">
+        <h3 id="orderItem">Item Name</h3>
+        
+        <input id="uid" type="number" placeholder="User ID (ဥပမာ - 12345678)">
+        <input id="zone" type="number" placeholder="Zone ID (ဥပမာ - 1234)">
+        <input id="gname" type="text" placeholder="Game Name">
+        
+        <div style="text-align: center;">
+            <span class="server-badge" id="serverText">Server: -</span>
         </div>
-    </div>
 
-    <input type="text" id="temp-input" value="09977123184">
-
-    <input type="number" id="userid" placeholder="User ID">
-    <input type="number" id="zoneid" placeholder="Zone ID">
-
-    <select id="item">
-        <option value="Weekly Diamond Pass - 6,500 Ks">Weekly Diamond Pass - 6,500 Ks</option>
-        <option value="11 Diamonds - 1,000 Ks">11 Diamonds - 1,000 Ks</option>
-    </select>
-
-    <div class="btn-group">
-        <button onclick="sendTo('fb')" class="btn fb-btn">Messenger ကနေ ဝယ်ယူမယ်</button>
-        <button onclick="sendTo('tg')" class="btn tg-btn">Telegram ကနေ ဝယ်ယူမယ်</button>
-        <a href="tel:09977123184" class="btn phone-btn">📞 ဖုန်းဆက်သွယ်ဝယ်ယူရန်</a>
+        <button class="order-btn tg" onclick="sendOrder('tg')">
+            <i class="fa-brands fa-telegram"></i> Telegram မှာ ဝယ်မယ်
+        </button>
+        <button class="order-btn fb" onclick="sendOrder('fb')">
+            <i class="fa-brands fa-facebook-messenger"></i> Messenger မှာ ဝယ်မယ်
+        </button>
+        <button class="order-btn close-btn" onclick="closeModal()">ပြန်ထွက်မယ်</button>
     </div>
 </div>
 
 <script>
-    // Copy အလုပ်လုပ်အောင် နည်းလမ်းဟောင်း (execCommand) ကို သုံးထားပါတယ် (ဒါက Portal မှာ ပိုစိတ်ချရပါတယ်)
-    function copyNumber() {
-        const copyText = document.getElementById("temp-input");
-        copyText.select();
-        copyText.setSelectionRange(0, 99999); // Mobile အတွက်
-        document.execCommand("copy");
-        alert("Kpay ဖုန်းနံပါတ်ကို Copy ကူးလိုက်ပါပြီ: " + copyText.value);
+let selectedItem = "";
+
+function copyKpay() {
+    const tempInput = document.getElementById('temp');
+    tempInput.select();
+    document.execCommand("copy");
+    
+    // ခလုတ်စာသားကို ခဏပြောင်းပေးမယ်
+    const btn = document.querySelector('.copy-btn');
+    const originalText = btn.innerText;
+    btn.innerText = "Copied!";
+    btn.style.background = "#22c55e";
+    
+    setTimeout(() => {
+        btn.innerText = originalText;
+        btn.style.background = "#38bdf8";
+    }, 2000);
+}
+
+function detectServer(z) {
+    if(!z) return "Unknown";
+    z = parseInt(z);
+    if(z >= 2000 && z < 3000) return "Myanmar";
+    if(z >= 3000 && z < 4000) return "Indonesia";
+    if(z >= 4000 && z < 5000) return "Malaysia";
+    if(z >= 5000 && z < 6000) return "Philippines";
+    return "Global/Other";
+}
+
+function buy(item) {
+    selectedItem = item;
+    document.getElementById('orderItem').innerText = item;
+    document.getElementById('modal').style.display = "flex";
+}
+
+document.getElementById('zone').oninput = function() {
+    document.getElementById('serverText').innerText = "Server: " + detectServer(this.value);
+};
+
+function closeModal() {
+    document.getElementById('modal').style.display = "none";
+}
+
+function sendOrder(platform) {
+    const uid = document.getElementById('uid').value;
+    const zone = document.getElementById('zone').value;
+    const gname = document.getElementById('gname').value;
+
+    if(!uid || !zone || !gname) {
+        alert("အချက်အလက် အပြည့်အစုံဖြည့်ပေးပါဦး");
+        return;
     }
 
-function sendTo(platform) {
-        const userId = document.getElementById('userid').value;
-        const zoneId = document.getElementById('zoneid').value;
-        const item = document.getElementById('item').value;
+    const msg = `*NEW MLBB ORDER*\n\n` +
+                `Item: ${selectedItem}\n` +
+                `ID: ${uid} (${zone})\n` +
+                `Name: ${gname}\n` +
+                `Server: ${detectServer(zone)}\n\n` +
+                `Payment: KPay (Done)`;
 
-        if (!userId || !zoneId) {
-            alert("ကျေးဇူးပြု၍ ID ဖြည့်ပေးပါဦး");
-            return;
-        }
+    const encodedMsg = encodeURIComponent(msg);
 
-        const message = MLBB ဝယ်ယူလိုပါသည်%0AItem: ${item}%0AUser ID: ${userId}%0AZone ID: ${zoneId};
-
-        let url = "";
-        if (platform === 'tg') {
-            url = https://t.me/Srflip55?text=${message};
-        } else if (platform === 'fb') {
-            url = https://m.me/han.min.htet.55?text=${message};
-        }
-
-        // Portal မှာ window.open အလုပ်မလုပ်ရင် window.location နဲ့ အတင်းခေါ်ခိုင်းတာပါ
-        window.location.href = url;
+    if(platform === "tg") {
+        window.open(`https://t.me/Srflip55?text=${encodedMsg}`);
+    } else {
+        // Messenger အတွက် Link (User ID သို့မဟုတ် Page Link သုံးနိုင်သည်)
+        window.open(`https://m.me/han.min.htet.55`);
     }
+}
+
+// Modal အပြင်ဘက်ကိုနှိပ်ရင် ပိတ်ပေးဖို့
+window.onclick = function(event) {
+    const modal = document.getElementById('modal');
+    if (event.target == modal) {
+        closeModal();
+    }
+}
 </script>
 
 </body>
