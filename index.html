@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MLBB Diamond Shop - Premium</title>
+    <title>MLBB Diamond Shop - Han Min Htet</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
     <style>
@@ -115,12 +115,72 @@
         .tg { background: #0088cc; color: white; }
         .fb { background: #1877f2; color: white; }
         .close-btn { background: transparent; color: #94a3b8; margin-top: 5px; cursor: pointer; border: none; width: 100%; }
+        .footer {
+    margin-top: 50px;
+    padding: 30px 20px;
+    text-align: center;
+    background: rgba(2, 6, 23, 0.6);
+    border-top: 1px solid rgba(56, 189, 248, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.copyright-text {
+    font-size: 13px;
+    color: #64748b;
+    letter-spacing: 0.5px;
+}
+
+.developer-brand {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    background: linear-gradient(to right, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.developer-brand:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+.premium-badge {
+    font-size: 9px;
+    padding: 2px 8px;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 50px;
+    color: var(--primary);
+    text-transform: uppercase;
+    margin-left: 5px;
+    vertical-align: middle;
+}
     </style>
 </head>
 
 <body>
 
-<div class="header">💎 MLBB DIAMOND STORE</div>
+<div class="header" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px;">
+    <div style="flex: 1;"></div> <div style="flex: 2; text-align: center;">💎 MLBB DIAMOND STORE</div>
+    
+    <div style="flex: 1; text-align: right;">
+        <a href="https://www.google.com" style="
+            text-decoration: none;
+            color: #94a3b8;
+            font-size: 12px;
+            border: 1px solid #334155;
+            padding: 5px 10px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.05);
+        ">
+            ကျော်မည် <i class="fa-solid fa-right-from-bracket"></i>
+        </a>
+    </div>
+</div>
 <div style="
     margin: 20px 15px 0;
     padding: 14px;
@@ -163,20 +223,20 @@
         <div class="price">1,000 Ks</div>
         <button class="buy-btn" onclick="buy('11 Diamonds', 1000, false)">ဝယ်ယူမယ်</button>
     </div>
-
-    <div class="card">
-        <img src="https://play-lh.googleusercontent.com/z7J5bwi_xO2xKCvop9gDSrZIySKBXVKT4IAnaDBhGRiJybOTFyNirQTXwYiv8lODtbeU">
-        <div class="item-name">22 Diamonds</div>
-        <div class="price">2,000 Ks</div>
-        <button class="buy-btn" onclick="buy('22 Diamonds', 2000, false)">ဝယ်ယူမယ်</button>
-    </div>
-
     <div class="card">
         <img src="https://play-lh.googleusercontent.com/z7J5bwi_xO2xKCvop9gDSrZIySKBXVKT4IAnaDBhGRiJybOTFyNirQTXwYiv8lODtbeU">
         <div class="item-name">86 Diamonds</div>
         <div class="price">5,300 Ks</div>
         <button class="buy-btn" onclick="buy('86 Diamonds', 5300, false)">ဝယ်ယူမယ်</button>
     </div>
+    <div class="card">
+        <img src="https://play-lh.googleusercontent.com/z7J5bwi_xO2xKCvop9gDSrZIySKBXVKT4IAnaDBhGRiJybOTFyNirQTXwYiv8lODtbeU">
+        <div class="item-name">172 Diamonds</div>
+        <div class="price">1,0500 Ks</div>
+        <button class="buy-btn" onclick="buy('172 Diamonds', 10500, false)">1hour free + ဝယ်ယူမယ် </button>
+    </div>
+
+    
 </div>
 
 <div class="modal" id="modal">
@@ -318,8 +378,18 @@ window.onclick = function(event) {
     if (event.target == document.getElementById('modal')) closeModal();
 }
 </script>
-
+<footer class="footer">
+    <div class="copyright-text">
+        &copy; 2024 - 2026 MLBB Diamond Store. All Rights Reserved.
+    </div>
+    <a href="#" class="developer-brand">
+        <i class="fa-solid fa-code" style="color: #38bdf8; font-size: 12px;"></i>
+        Crafted by Han Min Htet
+        <span class="premium-badge">Official Partner</span>
+    </a>
+</footer>
 </body>
 </html>
+
 
 
